@@ -16,7 +16,7 @@ services:
     image: postgres:11
     container_name: coveo-postgres
     ports:
-      - "5431:5432"
+      - "5432:5432"
     environment:
       POSTGRES_DB: coveo
       POSTGRES_USER: coveo
