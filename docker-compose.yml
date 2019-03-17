@@ -1,0 +1,29 @@
+---
+version: "3.4"
+
+services:
+
+  web-server:
+    depends_on:
+      - database
+    build: .
+    image: city-suggester-server
+    container_name: city-suggester-server
+    ports:
+      - "8080:8080"
+
+  database:
+    image: postgres:11
+    container_name: coveo-postgres
+    ports:
+      - "5431:5432"
+    environment:
+      POSTGRES_DB: coveo
+      POSTGRES_USER: coveo
+      POSTGRES_PASSWORD: coveo
+    volumes:
+      - "coveo-pgdata:/var/lib/postgresql/data"
+
+volumes:
+  coveo-pgdata:
+    name: coveo-pgdata
