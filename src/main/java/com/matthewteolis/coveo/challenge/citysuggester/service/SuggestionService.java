@@ -85,7 +85,15 @@ public class SuggestionService {
         double distanceScore = distanceWeight * (1.0 / distance);
         double populationScore = populationWeight * ((double) city.getPopulation() / (double) totalPopulation);
 
-        return distanceScore + populationScore;
+        double score = distanceScore + populationScore;
+
+        // If we divided by a really small number, less than 1, we get a score higher than 1.
+        // In this case, we are sure that we are choosing this location, so we'll return 1.
+        if (score > 1) {
+            score = 1.0;
+        }
+
+        return score;
     }
 
 }

@@ -57,7 +57,7 @@ public class SuggestionControllerTest {
     public void suggestionsSuccess() throws Exception {
         final City city1 = mockedCity("London", 10, 11, 1000, 0, "CA", "Canada", "CA.08", "Ontario");
         final City city2 = mockedCity("London", 50, 51, 1001, 1, "US", "United States", "US.OH", "Ohio");
-        final City city3 = mockedCity("Londontowne", 100, 101, 1002, 2, "US", "United States", "US.MD", "Maryland");
+        final City city3 = mockedCity("Londontowne", 43.70011, -79.4163, 1002, 2, "US", "United States", "US.MD", "Maryland");
 
         final List<City> cityList = new ArrayList<>(Arrays.asList(city1, city2, city3));
 
@@ -81,9 +81,9 @@ public class SuggestionControllerTest {
 
 
                 .andExpect(jsonPath("$.suggestions[2].name", is("Londontowne, MD, USA")))
-                .andExpect(jsonPath("$.suggestions[2].latitude", is("100.0")))
-                .andExpect(jsonPath("$.suggestions[2].longitude", is("101.0")))
-                .andExpect(jsonPath("$.suggestions[2].score", any(BigDecimal.class)));
+                .andExpect(jsonPath("$.suggestions[2].latitude", is("43.70011")))
+                .andExpect(jsonPath("$.suggestions[2].longitude", is("-79.4163")))
+                .andExpect(jsonPath("$.suggestions[2].score", is(1.0)));
     }
 
     private City mockedCity(String name, double latitude, double longitude, long population, int elevation, String countryISO, String countryName, String admin1Code, String admin1Name) {
