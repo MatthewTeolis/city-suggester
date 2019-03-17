@@ -84,7 +84,7 @@ GET /suggestions?q=Londo&latitude=43.70011&longitude=-79.4163
 ##### Request
 
 ```text
-GET /suggestions?q=SomeRandomcityinthemiddleofnowhere&latitude=43.70011&longitude=-79.4163
+GET /suggestions?q=SomeRandomCityInTheMiddleOfNowhere&latitude=43.70011&longitude=-79.4163
 ```
 
 ##### Response
