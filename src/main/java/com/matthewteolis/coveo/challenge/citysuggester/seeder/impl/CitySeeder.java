@@ -51,7 +51,7 @@ public class CitySeeder extends AbstractSeeder<CityRepository> {
         final List<City> cityList = new ArrayList<>();
 
         for (CSVRecord record : cityData) {
-            final String name = record.get("name");
+            final String name = record.get("ascii");
             final String latitude = record.get("lat");
             final String longitude = record.get("long");
             final String countryCode = record.get("country");
